@@ -26,10 +26,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  flutter_azure_speech: fcb614cb762f8d07e87a7f69e30ca7315db8275e
-  integration_test: ce0a3ffa1de96d1a89ca0ac26fca7ea18a749ef4
+  flutter_azure_speech: 9fdaa79e806a3d9e4393e3de4442d9011b628aea
+  integration_test: 4a889634ef21a45d28d50d622cf412dc6d9f586e
   MicrosoftCognitiveServicesSpeech-iOS: 766852ccd56e0c74bafbe9ea7033083c5f748d04
 
 PODFILE CHECKSUM: 7be2f5f74864d463a8ad433546ed1de7e0f29aef
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
