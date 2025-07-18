@@ -10,6 +10,16 @@ class MockFlutterAzureSpeechPlatform
 
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+  
+  @override
+  Future<String?> getSpeechToText(String language) {
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<void> initialize(String subscriptionKey, String region) {
+    throw UnimplementedError();
+  }
 }
 
 void main() {

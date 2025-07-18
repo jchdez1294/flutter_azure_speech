@@ -91,6 +91,12 @@ class _MyAppState extends State<MyApp> {
                 child: Text('Start Speech Recognition'),
                 onPressed: _startSpeechRecognition,
               ),
+              ElevatedButton(
+                child: Text('Test main thread'),
+                onPressed: () {
+                  print("Works fine!!!");
+                },
+              ),
             ],
           ),
         ),

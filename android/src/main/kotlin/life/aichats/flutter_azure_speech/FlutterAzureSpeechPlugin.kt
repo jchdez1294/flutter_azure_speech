@@ -8,6 +8,9 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import com.microsoft.cognitiveservices.speech.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 /** FlutterAzureSpeechPlugin */
 class FlutterAzureSpeechPlugin: FlutterPlugin, MethodCallHandler {
@@ -60,9 +63,16 @@ class FlutterAzureSpeechPlugin: FlutterPlugin, MethodCallHandler {
       config.speechRecognitionLanguage = language
       val recognizer = SpeechRecognizer(config)
 
-      val eventResult = recognizer.recognizeOnceAsync().get()
-      result.success(eventResult.text)
-      recognizer.close()
+      CoroutineScope(Dispatchers.IO).launch {
+        try {
+            val eventResult = recognizer.recognizeOnceAsync().get()
+            result.success(eventResult.text)
+        } catch (e: Exception) {
+            result.error("RECOGNITION_ERROR", e.message, null)
+        } finally {
+            recognizer.close()
+        }
+      }
     } catch (ex: Exception) {
       result.error("RECOGNITION_ERROR", ex.message, null)
     }
